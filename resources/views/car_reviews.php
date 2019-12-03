@@ -64,8 +64,6 @@
                         <li class="level0 parent "> <a class="level-top" href="/car_for_sale_list"><span>Cars For
                               Sale</span></a>
                         </li>
-                        <li class="level0 parent "> <a class="level-top" href="/car_for_sale_list"><span>Find Car Parts</span></a>
-                        </li>
                         <li class="level0 parent "> <a class="level-top" href="blog.html"><span>Car Reviews</span></a>
 
                         </li>

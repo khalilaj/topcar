@@ -2,6 +2,7 @@
 
 Route::redirect('lara-admin','login');
 Route::get('/','HomeController@index')->name('welcome');
+Route::get('/car_for_sale_list','CarForSaleListController@index')->name('car_for_sale_list');
 Route::post('/reservation','ReservationController@reserve')->name('reservation.reserve');
 Route::post('/contact','ContactController@sendMessage')->name('contact.send');
 
