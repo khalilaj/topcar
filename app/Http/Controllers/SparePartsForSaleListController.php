@@ -6,7 +6,7 @@ use App\CarCategory;
 use App\CarForSale;
 use Illuminate\Http\Request;
 
-class CarForSaleListController extends Controller
+class SparePartsForSaleListController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +23,6 @@ class CarForSaleListController extends Controller
     public function index()
     {  
         $car_for_sales = CarForSale::all();
-        return view('car_for_sale_list',compact('car_for_sales'));
+        return view('spareparts_for_sale_list',compact('car_for_sales'));
     }
 }

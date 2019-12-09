@@ -6,7 +6,7 @@ use App\CarCategory;
 use App\CarForSale;
 use Illuminate\Http\Request;
 
-class CarForSaleListController extends Controller
+class CarReviewDetailController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,8 +21,9 @@ class CarForSaleListController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
+    { 
+        $car_categories = CarCategory::all();
         $car_for_sales = CarForSale::all();
-        return view('car_for_sale_list',compact('car_for_sales'));
+        return view('car_review_detail',compact('car_categories','car_for_sales'));
     }
 }

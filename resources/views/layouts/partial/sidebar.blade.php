@@ -34,7 +34,7 @@
             </li>
             <li class="{{ Request::is('admin/car_for_sale*') ? 'active': '' }}">
                 <a href="{{ route('car_for_sale.index') }}">
-                    <i class="material-icons">vsr</i>
+                    <i class="material-icons">car</i>
                     <p>Cars For Sale</p>
                 </a>
             </li>

@@ -24,6 +24,7 @@
   <link href="https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,400,500,600,700,800" rel="stylesheet">
   
+  
  
     <header>
       <div class="header-banner">
@@ -63,10 +64,11 @@
                         <li class="active"> <a class="level-top" href="/"><span>Home</span></a></li>
                         <li class="level0 parent "> <a class="level-top" href="/car_for_sale_list"><span>Cars For
                               Sale</span></a>
-                        </li>
-                        <li class="level0 parent "> <a class="level-top" href="/car_for_sale_list"><span>Find Car Parts</span></a>
-                        </li>
-                        <li class="level0 parent "> <a class="level-top" href="blog.html"><span>Car Reviews</span></a>
+                        </li> 
+                        <li class="level0 parent "> <a class="level-top" href="/spareparts_for_sale_list"><span>Find Parts For
+                              Sale</span></a>
+                        </li> 
+                        <li class="level0 parent "> <a class="level-top" href="/car_review_list"><span>Car Reviews</span></a>
 
                         </li>
                         <li class="mega-menu hidden-sm"> <a class="level-top" href="/login"><span>Login</span></a>
@@ -139,6 +141,7 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <!-- Slider -->
           <div class="home-slider5">
@@ -200,8 +203,7 @@
                                 <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500'
                                   data-start='1500' data-easing='Linear.easeNone' data-splitin='none'
                                   data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1'
-                                  style='z-index:4; white-space:nowrap;'><a href='blog-detail.html' class="buy-btn">
-                                    Continue Reading</a> </div>
+                                  style='z-index:4; white-space:nowrap;'>  </div>
                               </div>
                             </div>
                           </div>
@@ -259,9 +261,58 @@
       
       <!-- best Pro Slider -->
       <section class=" wow bounceInUp animated">
+        <div class="best-pro slider-items-products container">
+          <div class="new_title">
+            <h2>Cars of the Week</h2>
+
+          </div>
+          <div id="best-seller" class="product-flexslider hidden-buttons">
+            <div class="slider-items slider-width-col4 products-grid">
+
+            @foreach($car_for_sales as $car_for_sale)
+              <div class="item">
+                <div class="item-inner">
+
+                  <div class="item-img">
+                    <div class="item-img-info"><a href="/car_for_sale_detail" title="Retis lapen casen"
+                        class="product-image"><img src="{{ asset('uploads/car_for_sale/'.$car_for_sale->image) }}" alt="Retis lapen casen"></a> 
+                    </div>
+                  </div>
+
+                  <div class="item-info">
+                    <div class="info-inner">
+                      <div class="item-title">
+                      <a href="/car_for_sale_detail" title="Retis lapen casen">
+                      {{ $car_for_sale->name }}
+                      </a>
+                       </div>
+                      <div class="item-content"> 
+                        <div class="item-price">
+                          <div class="price-box"><span class="regular-price"><span class="price">KSH {{ $car_for_sale->price }}</span>
+                            </span> </div>
+                        </div>
+                        <div class="other-info">
+                          <div class="col-km"><i class="fa fa-tachometer"></i> {{ $car_for_sale->mileage }}KMS</div>
+                          <div class="col-engine"><i class="fa fa-gear"></i>{{ $car_for_sale->engine }}</div>
+                          <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ $car_for_sale->year }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+              
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class=" wow bounceInUp animated">
         <div class="hot_deals slider-items-products container">
           <div class="new_title">
-            <h2>Deals of the Week</h2>
+            <h2>Spare Parts of the Week</h2>
 
           </div>
           <div id="hot_deals" class="product-flexslider hidden-buttons">
@@ -272,7 +323,7 @@
                 <div class="item-inner">
 
                   <div class="item-img">
-                    <div class="item-img-info"><a href="car-detail.html" title="Retis lapen casen"
+                    <div class="item-img-info"><a href="/spareparts_for_sale_detail" title="Retis lapen casen"
                         class="product-image"><img src="{{ asset('uploads/car_for_sale/'.$car_for_sale->image) }}" alt="Retis lapen casen"></a> 
                     </div>
                   </div>
@@ -280,13 +331,13 @@
                   <div class="item-info">
                     <div class="info-inner">
                       <div class="item-title">
-                      <a href="car-detail.html" title="Retis lapen casen">
+                      <a href="/car_for_sale_detail" title="Retis lapen casen">
                       {{ $car_for_sale->name }}
                       </a>
                        </div>
                       <div class="item-content"> 
                         <div class="item-price">
-                          <div class="price-box"><span class="regular-price"><span class="price">KSH. {{ $car_for_sale->price }}</span>
+                          <div class="price-box"><span class="regular-price"><span class="price">KSH {{ $car_for_sale->price }}</span>
                             </span> </div>
                         </div>
                         <div class="other-info">
@@ -319,7 +370,7 @@
             <div class="row">
               <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                 <div class="blog_inner">
-                  <div class="blog-img"> <a href="blog-detail.html"> <img src="/frontend/images/blog-img1.jpg" alt="blog image">
+                  <div class="blog-img"> <a href="/car_review_detail"> <img src="/frontend/images/blog-img1.jpg" alt="blog image">
                     </a> </div>
                   <!--blog-img-->
                   <div class="blog-info">
@@ -328,7 +379,7 @@
                       <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
                       <li><i class="fa fa-comments"></i><a href="#">4 comments</a> </li>
                     </ul>
-                    <h3><a href="blog-detail.html">Powerful and flexible premium Ecommerce themes</a></h3>
+                    <h3><a href="/car_review_detail">Powerful and flexible premium Ecommerce themes</a></h3>
                     <p>Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum facilisis sed non est. Ut mi metus,
                       semper eu dictum nec...</p>
                   </div>
@@ -337,7 +388,7 @@
               </div>
               <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                 <div class="blog_inner">
-                  <div class="blog-img"> <a href="blog-detail.html"> <img src="/frontend/images/blog-img2.jpg" alt="blog image">
+                  <div class="blog-img"> <a href="/car_review_detail"> <img src="/frontend/images/blog-img2.jpg" alt="blog image">
                     </a> </div>
                   <!--blog-img-->
                   <div class="blog-info">
@@ -346,7 +397,7 @@
                       <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
                       <li><i class="fa fa-comments"></i><a href="#">8 comments</a> </li>
                     </ul>
-                    <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a></h3>
+                    <h3><a href="/car_review_detail">Awesome template with lot's of features on the board!</a></h3>
                     <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac felis
                       erat sed elit bibendum ...</p>
                   </div>
@@ -355,7 +406,7 @@
               </div>
               <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
                 <div class="blog_inner">
-                  <div class="blog-img"> <a href="blog-detail.html"> <img src="/frontend/images/blog-img3.jpg" alt="blog image">
+                  <div class="blog-img"> <a href="/car_review_detail"> <img src="/frontend/images/blog-img3.jpg" alt="blog image">
                     </a> </div>
                   <!--blog-img-->
                   <div class="blog-info">
@@ -364,7 +415,7 @@
                       <li><i class="fa fa-user"></i>Posted by <a href="#">admin</a> </li>
                       <li><i class="fa fa-comments"></i><a href="#">8 comments</a> </li>
                     </ul>
-                    <h3><a href="blog-detail.html">Awesome template with lot's of features on the board!</a></h3>
+                    <h3><a href="/car_review_detail">Awesome template with lot's of features on the board!</a></h3>
                     <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac felis
                       erat sed elit bibendum ...</p>
                   </div>
@@ -377,65 +428,7 @@
           <!--exclude For version 6 -->
           <!--container-->
         </div>
-      <div class="logo-brand container">
-        <div class="brand-title">
-          <h2>Popular Cars</h2>
-        </div>
-        <div class="slider-items-products">
-          <div id="brand-slider" class="product-flexslider hidden-buttons">
-            <div class="slider-items slider-width-col6">
-              <!-- Item -->
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand1.png" alt="Image"></a></div>
-              </div>
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand2.png" alt="Image"></a></div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand3.png" alt="Image"></a></div>
-              </div>
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand4.png" alt="Image"></a></div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand5.png" alt="Image"></a></div>
-              </div>
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand6.png" alt="Image"></a></div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand1.png" alt="Image"></a></div>
-              </div>
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand2.png" alt="Image"></a></div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="images/brand3.png" alt="Image"></a></div>
-              </div>
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand4.png" alt="Image"></a></div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand5.png" alt="Image"></a></div>
-              </div>
-              <div class="item">
-                <div class="logo-item"><a href="#"><img src="/frontend/images/brand6.png" alt="Image"></a></div>
-              </div>
-              <!-- End Item -->
-
-            </div>
-          </div>
-        </div>
+     
       </div>
 
 
@@ -453,7 +446,7 @@
                       <div class="feature-box">
                         <div class="icon-truck"><img src="frontend/images/world-icon.png" alt="Image"></div>
                         <div class="content">
-                          <h6>World's #1</h6>
+                          <h6>Kenya's #1</h6>
                           <p>Largest Auto portal</p>
                         </div>
                       </div>
@@ -462,8 +455,8 @@
                       <div class="feature-box">
                         <div class="icon-support"><img src="frontend/images/car-sold-icon.png" alt="Image"></div>
                         <div class="content">
-                          <h6>Car Sold</h6>
-                          <p>Every 4 minute</p>
+                          <h6>Cars Sold</h6>
+                          <p>Every day</p>
                         </div>
                       </div>
                     </li>

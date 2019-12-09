@@ -2,24 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\CarCategory;
-use App\CarForSale;
-use Carbon\Carbon;
-
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\CarForSale;
+use App\CarCategory;
 
 class CarForSaleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $car_for_sales = CarForsale::all();
+        $car_for_sales = CarForSale::all();
         return view('admin.car_for_sale.index',compact('car_for_sales'));
 
     }
@@ -44,13 +36,10 @@ class CarForSaleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'car_category_id' => 'required',
+            'category' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'mileage' => 'required',
-            'engine' => 'required',
-            'discount' => 'required',
-            'year' => 'required',
+            'price' => 'required',
             'image' => 'required|mimes:jpeg,jpg,bmp,png',
         ]);
         $image = $request->file('image');
@@ -68,19 +57,14 @@ class CarForSaleController extends Controller
         }else{
             $imagename = "default.png";
         }
-        $car_for_sale = new CarForSale();
-        $car_for_sale->car_category_id = $request->car_category_id;
+        $car_for_sale = new car_for_sale();
+        $car_for_sale->category_id = $request->category;
         $car_for_sale->name = $request->name;
         $car_for_sale->description = $request->description;
         $car_for_sale->price = $request->price;
-        $car_for_sale->mileage = $request->mileage;
-        $car_for_sale->engine = $request->engine;
-        $car_for_sale->discount = $request->discount;
-        $car_for_sale->year = $request->year;
-        
         $car_for_sale->image = $imagename;
         $car_for_sale->save();
-        return redirect()->route('car_for_sale.index')->with('successMsg','Item Successfully Saved');
+        return redirect()->route('car_for_sale.index')->with('successMsg','car_for_sale Successfully Saved');
     }
 
     /**
@@ -102,9 +86,9 @@ class CarForSaleController extends Controller
      */
     public function edit($id)
     {
-        $car_for_sale = ItemC::find($id);
-        $cars_for_sales = Category::all();
-        return view('admin.car_for_sale.edit',compact('car_for_sale','cars_for_sales'));
+        $car_for_sale = CarForSale::find($id);
+        $car_categories = CarCategory::all();
+        return view('admin.car_for_sale.edit',compact('car_for_sale','car_categories'));
     }
 
     /**
@@ -121,9 +105,8 @@ class CarForSaleController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'image' => 'mimes:jpeg,jpg,bmp,png',
+            'image' => 'required|mimes:jpeg,jpg,bmp,png',
         ]);
-        $car_for_sale = Item::find($id);
         $image = $request->file('image');
         $slug = str_slug($request->name);
         if (isset($image))
@@ -135,21 +118,19 @@ class CarForSaleController extends Controller
             {
                 mkdir('uploads/car_for_sale',0777,true);
             }
-            unlink('uploads/car_for_sale/'.$car_for_sale->image);
             $image->move('uploads/car_for_sale',$imagename);
         }else{
-            $imagename = $car_for_sale->image;
+            $imagename = "default.png";
         }
-
+        $car_for_sale = new car_for_sale();
         $car_for_sale->category_id = $request->category;
         $car_for_sale->name = $request->name;
         $car_for_sale->description = $request->description;
         $car_for_sale->price = $request->price;
         $car_for_sale->image = $imagename;
         $car_for_sale->save();
-        return redirect()->route('car_for_sale.index')->with('successMsg','Item Successfully Updated');
+        return redirect()->route('car_for_sale.index')->with('successMsg','car_for_sale Successfully Saved');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -158,12 +139,12 @@ class CarForSaleController extends Controller
      */
     public function destroy($id)
     {
-        $car_for_sale = Item::find($id);
+        $car_for_sale = car_for_sale::find($id);
         if (file_exists('uploads/car_for_sale/'.$car_for_sale->image))
         {
             unlink('uploads/car_for_sale/'.$car_for_sale->image);
         }
         $car_for_sale->delete();
-        return redirect()->back()->with('successMsg','Item successfully Deleted');
+        return redirect()->back()->with('successMsg','car_for_sale successfully Deleted');
     }
 }

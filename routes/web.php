@@ -3,6 +3,11 @@
 Route::redirect('lara-admin','login');
 Route::get('/','HomeController@index')->name('welcome');
 Route::get('/car_for_sale_list','CarForSaleListController@index')->name('car_for_sale_list');
+Route::get('/car_for_sale_detail','CarForSaleDetailController@index')->name('car_for_sale_detail');
+Route::get('/spareparts_for_sale_list','SparePartsForSaleListController@index')->name('spareparts_for_sale_list');
+Route::get('/car_review_list','CarReviewListController@index')->name('car_review_list');
+Route::get('/spareparts_for_sale_detail','SparePartsForSaleDetailController@index')->name('spareparts_for_sale_detail');
+Route::get('/car_review_detail','CarReviewDetailController@index')->name('car_review_detail');
 Route::post('/reservation','ReservationController@reserve')->name('reservation.reserve');
 Route::post('/contact','ContactController@sendMessage')->name('contact.send');
 
