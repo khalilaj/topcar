@@ -46,9 +46,9 @@
         <div class="row">
           <div id="header">
             <div class="header-container">
-              <div class="header-logo"> <a href="index.html" title="Car HTML" class="logo">
-
-                </a> </div>
+            <div class="header-logo"> <a href="/" title="Car HTML" class="logo">
+              <div><img src="frontend/images/logo.png" alt="Car Store"></div>
+              </a> </div>
               <div class="header__nav">
 
 

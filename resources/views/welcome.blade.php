@@ -27,29 +27,28 @@
   
  
     <header>
-      <div class="header-banner">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
-              <div class="assetBlock">
-                <div style="height: 20px; overflow: hidden;" id="slideshow">
-                  <p style="display: block;">Hot days! - <span>50%</span> Get ready for crazy offers! </p>
-                  <p style="display: none;">Save up to <span>40%</span> Hurry limited offers!</p>
+    <div class="header-banner">
+  <div class="container">
+  <div class="row">
+                <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
+                  <div class="assetBlock">
+                    <div style="height: 20px; overflow: hidden;" id="slideshow">
+                      <p style="display: block;">Hot days! - <span>50%</span> Get ready for summer! </p>
+                      <p style="display: none;">Save up to <span>40%</span> Hurry limited offer!</p>
+                    </div>
+                  </div>
                 </div>
+                <div class="col-lg-6 col-lg-6 col-xs-12 col-sm-6 col-md-6 call-us"><i class="fa fa-clock-o"></i> Mon - Fri : 09am to 06pm <i class="fa fa-phone"></i> +1 800 789 0000</div>
               </div>
-            </div>
-            <div class="col-lg-6 col-lg-6 col-xs-12 col-sm-6 col-md-6 call-us"><i class="fa fa-clock-o"></i> Mon - Sun :
-              00.00am to 11.59pm <i class="fa fa-phone"></i> +254 702 987 866</div>
-          </div>
-        </div>
-      </div>
+              </div>
+              </div>
       <div class="container">
         <div class="row">
           <div id="header">
             <div class="header-container">
-              <div class="header-logo"> <a href="index.html" title="Car HTML" class="logo">
-
-                </a> </div>
+            <div class="header-logo"> <a href="/" title="Car HTML" class="logo">
+              <div><img src="frontend/images/logo.png" alt="Car Store"></div>
+              </a> </div>
               <div class="header__nav">
 
 
@@ -229,7 +228,7 @@
           <div>
             <div class="slider-items-products">
               <div class="new_title">
-                <h2>Car Categories </h2>
+                <h2>Car Body Type </h2>
               </div>
               <div id="top-categories" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col4 products-grid">

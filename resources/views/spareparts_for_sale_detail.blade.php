@@ -81,9 +81,9 @@
         <div class="row">
           <div id="header">
             <div class="header-container">
-              <div class="header-logo"> <a href="index.html" title="Car HTML" class="logo">
-
-                </a> </div>
+            <div class="header-logo"> <a href="/" title="Car HTML" class="logo">
+              <div><img src="frontend/images/logo.png" alt="Car Store"></div>
+              </a> </div>
               <div class="header__nav">
 
 
@@ -130,7 +130,7 @@
       <div class="row">
         <div class="col-xs-12">
           <ul>
-            <li class="home"> <a href="index.html" title="Go to Home Page">Home</a> <span>&rsaquo; </span> </li>
+            <li class="home"> <a href="/" title="Go to Home Page">Home</a> <span>&rsaquo; </span> </li>
             <li class="category1599"> <a href="grid.html" title="">Find parts</a> <span>&rsaquo; </span> </li>
             <li class="category1600"> <a href="grid.html" title="">Spare part detail</a> <span>&rsaquo; </span> </li> 
           </ul>
@@ -211,6 +211,9 @@
                         <li class="youtube"><a href="#"></a></li>
                       </ul>
                     </div>
+                    <div class="toll-free"><a href="#"><i class="fa fa-phone"></i> +1 800 789 0000</a></div>
+                    <div class="ask-question"><a href="#"><i class="fa fa-whatsapp"></i>WhatsApp</a></div>
+                    <div class="request-call"><a href="#"><i class="fa fa-user"></i>Dealer Profile </a></div>
                   
                   </div>
                 <!--product-shop-->
